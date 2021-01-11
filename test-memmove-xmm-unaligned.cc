@@ -18,14 +18,14 @@
   - on machines without RAM problems test silently OOMs
   - on machines with RAM problems test keeps reporting 'Bad result in memmove...' (as above)
 
-  Observed failre details on my machine:
+  Observed failure details on my machine:
   - over past 7 years I have experienced rare SIGSEGVs in userspace and kernel space
     without meaningful backtraces. It always looked as a memory corruption.
     One day I have noticed glibc memmove() test failures on my machine. That is never
     supposed to happen. a few more details: https://lkml.org/lkml/2018/6/16/120
   - Failures always started happening when OS allocated around 18GB of data (I guess
     started using third DIMM module).
-  - Once I've reshuggled DIMM modules in motherboard this test started crashing at
+  - Once I've reshuffled DIMM modules in motherboard this test started crashing at
     2GB mark. That's when I've started strongly suspecting hardware bug and not a
     software bug.
   - After isolating bad DIMM I've unplugged bad DIMM module from motherboard and
